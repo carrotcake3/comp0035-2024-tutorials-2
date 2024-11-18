@@ -278,6 +278,8 @@ def add_host_data(df_events, db_path):
             select_sql = f'SELECT code from country where name="{country_name}"'
             result = cursor.execute(select_sql).fetchone()
             country_code = result[0]
+
+            print(country_code)
             # Insert into the host table
             host = row['host']
             cursor.execute('INSERT INTO host (country_code, host) VALUES (?, ?)', (country_code, host))
